@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="{% static 'css/cust.css' %}" rel="stylesheet">
+</head>
+<body style="background-image:url({% static 'images/slider/bloods.png' %});background-position: center;
+  background-repeat: no-repeat;">
+<center>
+<section class="gradient-form" style="background-color: #eee;">
+  <div class="container">
+    <div class="row banner-class">
+      <div class="col-9 col-sm-12 col-md-4  col-lg-4">
+        <div class="card " style="width:18rem;">
+          <div class="row ">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+              <div class="card-body">
+                <div class="text-center">
+                  <h4 class="mt-1 mb-5 pb-1" style="color:gary;">Donate Blood & Save a Life</h4>
+                </div>
+                <form action="{% url 'blood:donor_registration' %}" method="post"  >
+                    {% csrf_token %}
+
+                  <div class="form-outline mb-4" style="color:gary;">
+                    <label class="form-label" for="form2Example11">Username:</label>
+                    <input  id="form2Example11" class="form-control"
+                       type="text" name="username" placeholder="Enter the Username"/>
+                  </div>
+                  <br>
+                  <div class="form-outline mb-4" style="color:gary;">
+                    <label>Password :</label>
+                    <input type="password" id="form2Example22" class="form-control"  name="passw" placeholder="Enter the Password"/>
+                  </div>
+                  <br>
+                  <div class="text-center pt-1 mb-5 pb-1"><br>
+                    <input class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" value="Login"><br><br>
+                    <a  href="reg">New Registration</a>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</center>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>blood Register</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/nunito-font.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+</head>
+<body class="form-v6">
+	<div class="page-content">
+		<div class="form-v6-content">
+			<div class="form-left">
+				<img src="{% static 'images/slider/don.png' %}"  style="width:400px;height:430px;" alt="form">
+			</div>
+			<form class="form-detail" action="" method="post">
+                 {% csrf_token %}
+				<h2>Register Form</h2>
+				<div class="form-row">
+					<input type="text" name="username"  class="input-text" placeholder="User Name" >
+				</div>
+				<div class="form-row">
+					<input type="password" name="passw"  class="input-text"placeholder="Password" >
+				</div>
+				<div class="form-row">
+					<input type="password" name="passwr"  class="input-text"  placeholder="Comfirm Password" >
+				</div>
+				<input class="btn btn-secondary" type="submit">
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+

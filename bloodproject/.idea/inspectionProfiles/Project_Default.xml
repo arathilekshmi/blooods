@@ -1,0 +1,17 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="PIL.image" />
+          <option value="PIL.imageTk" />
+          <option value="django.shortcuts.HttpRespones" />
+          <option value="MovieForm" />
+          <option value="movieapp.forms.forms" />
+          <option value="django.core.urlresolvers" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

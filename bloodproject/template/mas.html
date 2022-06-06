@@ -1,0 +1,6 @@
+<div>
+     {% for ma in messages %}
+    {{ma}}
+    <a class="btn btn-secondary" href="{% url 'blood:demo' %}">OK</a>
+    {% endfor %}
+</div>

@@ -1,0 +1,75 @@
+{% block title %}<title>Registration Form</title>{% endblock %}
+{% block contents %}
+{% load static %}
+<style>
+   body
+   {
+     background-image:url("{% static 'images/blog/bank.jpg' %}");
+   }
+    .center
+    {
+    padding:20px;
+    }
+
+
+    .width-border {
+        width: 700px;
+        border-radius: 12px;
+        border: 1px solid #d953;
+        height:auto;
+
+    }
+
+</style>
+<body>
+<center>
+<div class="center">
+  <div class="container">
+    <div class="p-5">
+        <div class="shadow-lg p-5 mb-3 bg-white width-border mx-auto">
+            <form action="" method="post" id="personForm" data-center-url="{% url 'blood:ajax_load_center' %}">
+                <h2 class="text-center pt-4 text-danger text-uppercase" style="color: #880808;"><center>Blood Donation Form</center></h2>
+                {% csrf_token %}
+                {{form.as_p}}
+                <a  class="btn btn-primary" href="donor_list.html"><input type="submit"></a>
+                <a  class="btn btn-secondary" href=""><input type="reset"></a>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'jquery/jquery-3.3.1.min.js' %}"></script>
+    <script>
+    $("#id_district").change(function ()
+    {
+        const url = $("#personForm").attr("data-center-url");  // get the url of the `load_cities` view
+        const districtId = $(this).val();  // get the selected country ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'district_id': districtId       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_center").html(data);  // replace the contents of the city input with the data that came from the server
+                /*
+
+                let html_data = '<option value="">---------</option>';
+                data.forEach(function (city) {
+                    html_data += `<option value="${city.id}">${city.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_city").html(html_data);
+
+                */
+            }
+        });
+
+    });
+</script>
+
+</div>
+</div>
+</center>
+</body>
+{% endblock %}
